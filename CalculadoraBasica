@@ -1,0 +1,54 @@
+import java.util.Scanner;
+
+public class CalculadoraBasica {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Introduce el primer número: ");
+        while (!scanner.hasNextDouble()) {
+            System.out.print("Error, introduce un número válido: ");
+            scanner.next();
+        }
+        double num1 = scanner.nextDouble();
+
+        System.out.print("Introduce el segundo número: ");
+        while (!scanner.hasNextDouble()) {
+            System.out.print("Error, introduce un número válido: ");
+            scanner.next();
+        }
+        double num2 = scanner.nextDouble();
+
+        System.out.println("Selecciona una operación: ");
+        System.out.println("1. Suma");
+        System.out.println("2. Resta");
+        System.out.println("3. Multiplicación");
+        System.out.println("4. División");
+        int operacion = scanner.nextInt();
+
+        double resultado = 0;
+        switch (operacion) {
+            case 1:
+                resultado = num1 + num2;
+                break;
+            case 2:
+                resultado = num1 - num2;
+                break;
+            case 3:
+                resultado = num1 * num2;
+                break;
+            case 4:
+                if (num2 == 0) {
+                    System.out.println("Error, no se puede dividir entre cero.");
+                    return;
+                } else {
+                    resultado = num1 / num2;
+                }
+                break;
+            default:
+                System.out.println("Error, operación no válida.");
+                return;
+        }
+
+        System.out.println("El resultado es: " + resultado);
+    }
+}
