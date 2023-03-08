@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class Potencia {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Introduce la base: ");
+        while (!scanner.hasNextDouble()) {
+            System.out.print("Error, introduce un número válido: ");
+            scanner.next();
+        }
+        double base = scanner.nextDouble();
+
+        System.out.print("Introduce el exponente: ");
+        while (!scanner.hasNextInt()) {
+            System.out.print("Error, introduce un número entero válido: ");
+            scanner.next();
+        }
+        int exponente = scanner.nextInt();
+
+        double resultado = Math.pow(base, exponente);
+
+        System.out.println(base + " elevado a " + exponente + " es igual a " + resultado);
+    }
+}
